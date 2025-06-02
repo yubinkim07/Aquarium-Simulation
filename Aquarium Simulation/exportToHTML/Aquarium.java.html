@@ -1,0 +1,148 @@
+<html>
+<head>
+<title>Aquarium.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cba6f7;}
+.s1 { color: #cdd6f4;}
+.s2 { color: #9399b2;}
+.s3 { color: #6c7086; font-style: italic;}
+.s4 { color: #f38ba8; font-style: italic;}
+.s5 { color: #89dceb;}
+.s6 { color: #a6e3a1;}
+.s7 { color: #fab387;}
+</style>
+</head>
+<body bgcolor="#1e1e2e">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+Aquarium.java</font>
+</center></td></tr></table>
+<pre><span class="s0">import </span><span class="s1">java</span><span class="s2">.</span><span class="s1">io</span><span class="s2">.</span><span class="s1">IOException</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">java</span><span class="s2">.</span><span class="s1">util</span><span class="s2">.</span><span class="s1">ArrayList</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">java</span><span class="s2">.</span><span class="s1">util</span><span class="s2">.</span><span class="s1">Arrays</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">java</span><span class="s2">.</span><span class="s1">util</span><span class="s2">.</span><span class="s1">List</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">java</span><span class="s2">.</span><span class="s1">util</span><span class="s2">.</span><span class="s1">Scanner</span><span class="s2">;</span>
+
+<span class="s3">/**</span>
+ <span class="s3">* An aquarium that can add, review, and observe fish.</span>
+ <span class="s3">* </span><span class="s4">@author </span><span class="s3">Yubin Kim</span>
+ <span class="s3">* </span><span class="s4">@version </span><span class="s3">1.0.0</span>
+ <span class="s3">*/</span>
+<span class="s0">public class </span><span class="s1">Aquarium </span><span class="s2">{</span>
+    <span class="s3">//Arraylist to list all fish</span>
+    <span class="s1">ArrayList</span><span class="s5">&lt;</span><span class="s1">Fish</span><span class="s5">&gt; </span><span class="s1">fishList </span><span class="s5">= </span><span class="s0">new </span><span class="s1">ArrayList</span><span class="s5">&lt;</span><span class="s1">Fish</span><span class="s5">&gt;</span><span class="s2">();</span>
+<span class="s3">//    private int sizeX = 200;</span>
+<span class="s3">//    private int sizeY = 100;</span>
+
+    <span class="s3">/**</span>
+     <span class="s3">* Main program for user input</span>
+     <span class="s3">* </span><span class="s4">@param </span><span class="s3">args</span>
+     <span class="s3">*/</span>
+    <span class="s0">public void </span><span class="s1">main</span><span class="s2">(</span><span class="s1">String</span><span class="s2">[] </span><span class="s1">args</span><span class="s2">) {</span>
+
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s6">&quot;Welcome to Aquarium!&quot;</span><span class="s2">);</span>
+        <span class="s3">//addBasicFishes();</span>
+        <span class="s3">//Asking what user wants to do</span>
+        <span class="s0">while </span><span class="s2">(</span><span class="s0">true</span><span class="s2">) {</span>
+            <span class="s1">Scanner input </span><span class="s5">= </span><span class="s0">new </span><span class="s1">Scanner</span><span class="s2">(</span><span class="s1">System</span><span class="s2">.</span><span class="s1">in</span><span class="s2">);</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s6">&quot;Would you like to add or observe the fish? (A/O) - E to Exit&quot;</span><span class="s2">);</span>
+            <span class="s1">String action </span><span class="s5">= </span><span class="s1">input</span><span class="s2">.</span><span class="s1">nextLine</span><span class="s2">();</span>
+
+            <span class="s3">//Adding a fish</span>
+            <span class="s0">if </span><span class="s2">(</span><span class="s1">action</span><span class="s2">.</span><span class="s1">equals</span><span class="s2">(</span><span class="s6">&quot;A&quot;</span><span class="s2">)) {</span>
+                <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s6">&quot;Would you like to add a regular or pink fish? (REG/PINK)&quot;</span><span class="s2">);</span>
+                <span class="s1">String type </span><span class="s5">= </span><span class="s1">input</span><span class="s2">.</span><span class="s1">nextLine</span><span class="s2">();</span>
+
+                <span class="s3">//Fish adding... (REG/PINK)</span>
+                <span class="s0">if </span><span class="s2">(</span><span class="s1">type</span><span class="s2">.</span><span class="s1">equals</span><span class="s2">(</span><span class="s6">&quot;REG&quot;</span><span class="s2">)) {</span>
+                    <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s6">&quot;Enter name of fish: &quot;</span><span class="s2">);</span>
+                    <span class="s1">String name </span><span class="s5">= </span><span class="s1">input</span><span class="s2">.</span><span class="s1">nextLine</span><span class="s2">();</span>
+                    <span class="s1">addRegFish</span><span class="s2">(</span><span class="s1">name</span><span class="s2">);</span>
+                    <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s6">&quot;Fish &quot; </span><span class="s5">+ </span><span class="s1">name </span><span class="s5">+ </span><span class="s6">&quot; has been added.&quot;</span><span class="s2">);</span>
+                    <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s6">&quot;Current Fishes in Aquarium: &quot; </span><span class="s5">+ </span><span class="s1">Arrays</span><span class="s2">.</span><span class="s1">toString</span><span class="s2">(</span><span class="s1">getFishNames</span><span class="s2">()));</span>
+                <span class="s2">}</span>
+                <span class="s0">else if </span><span class="s2">(</span><span class="s1">type</span><span class="s2">.</span><span class="s1">equals</span><span class="s2">(</span><span class="s6">&quot;PINK&quot;</span><span class="s2">)) {</span>
+                    <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s6">&quot;Enter name of fish: &quot;</span><span class="s2">);</span>
+                    <span class="s1">String name </span><span class="s5">= </span><span class="s1">input</span><span class="s2">.</span><span class="s1">nextLine</span><span class="s2">();</span>
+                    <span class="s1">addPinkFish</span><span class="s2">(</span><span class="s1">name</span><span class="s2">);</span>
+                    <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s6">&quot;Pink Fish &quot; </span><span class="s5">+ </span><span class="s1">name </span><span class="s5">+ </span><span class="s6">&quot; has been added.&quot;</span><span class="s2">);</span>
+                    <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s6">&quot;Current Fishes in Aquarium: &quot; </span><span class="s5">+ </span><span class="s1">Arrays</span><span class="s2">.</span><span class="s1">toString</span><span class="s2">(</span><span class="s1">getFishNames</span><span class="s2">()));</span>
+                <span class="s2">}</span>
+                <span class="s0">else </span><span class="s2">{</span>
+                    <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s6">&quot;Invalid input!&quot;</span><span class="s2">);</span>
+                <span class="s2">}</span>
+
+            <span class="s3">//Observing fish tank</span>
+            <span class="s2">} </span><span class="s0">else if </span><span class="s2">(</span><span class="s1">action</span><span class="s2">.</span><span class="s1">equals</span><span class="s2">(</span><span class="s6">&quot;O&quot;</span><span class="s2">)) {</span>
+                <span class="s0">for </span><span class="s2">(</span><span class="s1">Fish f </span><span class="s5">: </span><span class="s1">fishList</span><span class="s2">) {</span>
+                    <span class="s1">f</span><span class="s2">.</span><span class="s1">move</span><span class="s2">();</span>
+                <span class="s2">}</span>
+                <span class="s1">printTank</span><span class="s2">();</span>
+                <span class="s0">try </span><span class="s2">{</span>
+                    <span class="s0">new </span><span class="s1">AquariumImage</span><span class="s2">(</span><span class="s1">fishList</span><span class="s2">);</span>
+                <span class="s2">} </span><span class="s0">catch </span><span class="s2">(</span><span class="s1">IOException e</span><span class="s2">) {</span>
+                    <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s1">e</span><span class="s2">.</span><span class="s1">getMessage</span><span class="s2">());</span>
+                <span class="s2">}</span>
+            <span class="s3">//Exiting the program</span>
+            <span class="s2">} </span><span class="s0">else if </span><span class="s2">(</span><span class="s1">action</span><span class="s2">.</span><span class="s1">equals</span><span class="s2">(</span><span class="s6">&quot;E&quot;</span><span class="s2">)) {</span>
+                <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s6">&quot;Thank you for visiting!&quot;</span><span class="s2">);</span>
+                <span class="s0">break</span><span class="s2">;</span>
+            <span class="s2">}</span>
+            <span class="s0">else </span><span class="s2">{</span>
+                <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s6">&quot;Invalid input!&quot;</span><span class="s2">);</span>
+            <span class="s2">}</span>
+        <span class="s2">}</span>
+    <span class="s2">}</span>
+
+    <span class="s3">/**</span>
+     <span class="s3">* Creates testing fishes</span>
+     <span class="s3">*/</span>
+    <span class="s0">private void </span><span class="s1">addBasicFishes</span><span class="s2">() {</span>
+        <span class="s1">addRegFish</span><span class="s2">(</span><span class="s6">&quot;Jae&quot;</span><span class="s2">);</span>
+        <span class="s1">addPinkFish</span><span class="s2">(</span><span class="s6">&quot;Jaime&quot;</span><span class="s2">);</span>
+        <span class="s1">addRegFish</span><span class="s2">(</span><span class="s6">&quot;Shane&quot;</span><span class="s2">);</span>
+        <span class="s1">addPinkFish</span><span class="s2">(</span><span class="s6">&quot;Yubin&quot;</span><span class="s2">);</span>
+    <span class="s2">}</span>
+
+    <span class="s3">/**</span>
+     <span class="s3">* Prints the coordinates of each fish</span>
+     <span class="s3">*/</span>
+    <span class="s0">public void </span><span class="s1">printTank</span><span class="s2">() {</span>
+        <span class="s0">for </span><span class="s2">(</span><span class="s1">Fish f </span><span class="s5">: </span><span class="s1">fishList</span><span class="s2">) {</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s1">f</span><span class="s2">.</span><span class="s1">getName</span><span class="s2">() </span><span class="s5">+ </span><span class="s6">&quot;: (&quot; </span><span class="s5">+ </span><span class="s1">f</span><span class="s2">.</span><span class="s1">getLocX</span><span class="s2">() </span><span class="s5">+ </span><span class="s6">&quot;, &quot; </span><span class="s5">+ </span><span class="s1">f</span><span class="s2">.</span><span class="s1">getLocY</span><span class="s2">() </span><span class="s5">+ </span><span class="s6">&quot;)&quot;</span><span class="s2">);</span>
+        <span class="s2">}</span>
+    <span class="s2">}</span>
+
+    <span class="s3">/**</span>
+     <span class="s3">* Returns a list of all fish names</span>
+     <span class="s3">* </span><span class="s4">@return </span><span class="s3">fish names</span>
+     <span class="s3">*/</span>
+    <span class="s0">public </span><span class="s1">String</span><span class="s2">[] </span><span class="s1">getFishNames</span><span class="s2">() {</span>
+        <span class="s1">String</span><span class="s2">[] </span><span class="s1">fishNames </span><span class="s5">= </span><span class="s0">new </span><span class="s1">String</span><span class="s2">[</span><span class="s1">fishList</span><span class="s2">.</span><span class="s1">size</span><span class="s2">()];</span>
+        <span class="s0">for </span><span class="s2">(</span><span class="s0">int </span><span class="s1">i </span><span class="s5">= </span><span class="s7">0</span><span class="s2">; </span><span class="s1">i </span><span class="s5">&lt; </span><span class="s1">fishList</span><span class="s2">.</span><span class="s1">size</span><span class="s2">(); </span><span class="s1">i</span><span class="s5">++</span><span class="s2">) {</span>
+            <span class="s1">fishNames</span><span class="s2">[</span><span class="s1">i</span><span class="s2">] </span><span class="s5">= </span><span class="s1">fishList</span><span class="s2">.</span><span class="s1">get</span><span class="s2">(</span><span class="s1">i</span><span class="s2">).</span><span class="s1">getName</span><span class="s2">();</span>
+        <span class="s2">}</span>
+        <span class="s0">return </span><span class="s1">fishNames</span><span class="s2">;</span>
+    <span class="s2">}</span>
+
+    <span class="s3">/**</span>
+     <span class="s3">* Adding a Fish to the fishList</span>
+     <span class="s3">* </span><span class="s4">@param </span><span class="s3">name</span>
+     <span class="s3">*/</span>
+    <span class="s0">public void </span><span class="s1">addRegFish</span><span class="s2">(</span><span class="s1">String name</span><span class="s2">) {</span>
+        <span class="s1">fishList</span><span class="s2">.</span><span class="s1">add</span><span class="s2">(</span><span class="s0">new </span><span class="s1">Fish</span><span class="s2">(</span><span class="s1">name</span><span class="s2">));</span>
+    <span class="s2">}</span>
+
+    <span class="s3">/**</span>
+     <span class="s3">* Adding a Pink Fish to the fishList</span>
+     <span class="s3">* </span><span class="s4">@param </span><span class="s3">name</span>
+     <span class="s3">*/</span>
+    <span class="s0">public void </span><span class="s1">addPinkFish</span><span class="s2">(</span><span class="s1">String name</span><span class="s2">) {</span>
+        <span class="s1">fishList</span><span class="s2">.</span><span class="s1">add</span><span class="s2">(</span><span class="s0">new </span><span class="s1">PinkFish</span><span class="s2">(</span><span class="s1">name</span><span class="s2">));</span>
+    <span class="s2">}</span>
+
+<span class="s2">}</span></pre>
+</body>
+</html>
