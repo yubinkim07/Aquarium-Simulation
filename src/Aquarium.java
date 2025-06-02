@@ -19,8 +19,12 @@ public class Aquarium {
      * Main program for user input
      * @param args
      */
-    public void main(String[] args) {
+    public static void main(String[] args) {
+        Aquarium main = new Aquarium();
+        main.run();
+    }
 
+    public void run() {
         System.out.println("Welcome to Aquarium!");
         //addBasicFishes();
         //Asking what user wants to do
